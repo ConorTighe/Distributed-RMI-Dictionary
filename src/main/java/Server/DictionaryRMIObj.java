@@ -1,6 +1,7 @@
-package gmit;
+package Server;
 import java.rmi.*;
 import java.rmi.server.*;
+import DictionaryInterface.DictionaryInterface;
 
 public class DictionaryRMIObj extends UnicastRemoteObject implements DictionaryInterface {
 
@@ -10,7 +11,6 @@ public class DictionaryRMIObj extends UnicastRemoteObject implements DictionaryI
 		super();
 	}
 
-	@Override
 	public String findWord(String w) throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;

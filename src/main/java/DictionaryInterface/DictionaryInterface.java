@@ -1,4 +1,5 @@
-package gmit;
+package DictionaryInterface;
+
 import java.rmi.*;
 
 public interface DictionaryInterface extends Remote {
