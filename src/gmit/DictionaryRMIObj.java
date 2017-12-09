@@ -7,7 +7,7 @@ public class DictionaryRMIObj extends UnicastRemoteObject implements DictionaryI
 	private static final long serialVersionUID = 1L;
 
 	public DictionaryRMIObj() throws RemoteException {
-		// TODO Auto-generated constructor stub
+		super();
 	}
 
 	@Override

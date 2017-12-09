@@ -8,14 +8,14 @@ public class DictionaryServer {
 
 	public static void main(String[] args) throws RemoteException {
 		
-		DictionaryRMIObj DictionaryObj = new DictionaryRMIObj();
+		DictionaryInterface Dictionary = new DictionaryRMIObj();
 
 		try {
 		//Start the RMI registry on port 1099
 		LocateRegistry.createRegistry(1099);
 
 		//Bind our remote object to the registry with the human-readable name "fileService"
-		Naming.rebind("fileService", DictionaryObj);
+		Naming.rebind("DictionaryService", Dictionary);
 
 		//Print a message to standard output
 		System.out.println("Server ready.");
