@@ -26,6 +26,6 @@ public class SearchMenu extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String word = request.getParameter("word");
-        System.out.println("My the word: "+word);
+        System.out.println("The word: "+word);
     }   
 }

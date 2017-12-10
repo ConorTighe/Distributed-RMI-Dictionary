@@ -2,14 +2,15 @@
 <div class="container">
 	<H1>Welcome ${name}</H1>
 
-
-	<form action="ClientService" method="post">
-    	word:<input type="text" id="fname" placeholder="type the word you want to search!"/>
+	<p>
+		Enter a word to send to the server below!
+	</p>
+	<form action="SearchMenu" method="post">
+    	word:<input type="text" name="word" placeholder="type the word here!"/>
     	<input type="submit" value="ok"/>
 	</form>
 
 	<p>
 		<font color="red">${errorMessage}</font>
 	</p>
-	<a class="btn btn-success" href="/Client">Look up words on a server</a>
 </div>

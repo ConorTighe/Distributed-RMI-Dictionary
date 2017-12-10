@@ -1,7 +1,6 @@
 package Client;
 
 import java.rmi.Naming;
-
 import DictionaryInterface.DictionaryInterface;
 
 public class Client {
