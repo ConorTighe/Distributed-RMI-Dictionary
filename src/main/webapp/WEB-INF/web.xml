@@ -5,7 +5,7 @@
     <display-name>Online Dictionary</display-name>
 
     <welcome-file-list>
-        <welcome-file>DictionaryMenu</welcome-file>
+        <welcome-file>LoginPage</welcome-file>
     </welcome-file-list>
 
 </web-app>
