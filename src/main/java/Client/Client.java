@@ -27,16 +27,20 @@ public class Client extends HttpServlet {
     
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String word = request.getParameter("word");
+        String res;
         System.out.println("The word: "+word);
         
         WordWorker wordWork = new WordWorker(word);
         try {
 			wordWork.run();
 			wordWork.toString();
+			res = wordWork.getServerResult();
 		} catch (NotBoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			res = "error check console";
 		}
-        
+        request.getSession().setAttribute("result", res);
+		response.sendRedirect("/SearchResults");
     }   
 }
