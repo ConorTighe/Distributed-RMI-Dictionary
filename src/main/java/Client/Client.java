@@ -30,7 +30,7 @@ public class Client extends HttpServlet {
         String res;
         System.out.println("The word: "+word);
         
-        WordWorker wordWork = new WordWorker(word);
+        /*WordWorker wordWork = new WordWorker(word);
         try {
 			wordWork.run();
 			wordWork.toString();
@@ -41,6 +41,6 @@ public class Client extends HttpServlet {
 			res = "error check console";
 		}
         request.getSession().setAttribute("result", res);
-		response.sendRedirect("/SearchResults");
+		response.sendRedirect("/SearchResults"); */
     }   
 }
