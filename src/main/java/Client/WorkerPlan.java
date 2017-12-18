@@ -9,4 +9,7 @@ public interface WorkerPlan extends Runnable {
 	
 	public String getServerResult();
 	
+	public String getWord();
+	
+	public String getJobName();
 }

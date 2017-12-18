@@ -91,7 +91,7 @@ public class DictionaryWebServer {
 			try {
 				LocateRegistry.createRegistry(SERVER_PORT);
 
-				//Bind our remote object to the registry with the human-readable name "fileService"
+				//Bind our remote object to the registry with the human-readable name "DictionaryService"
 				Naming.rebind("DictionaryService", Dictionary);
 
 			} catch (RemoteException | MalformedURLException e) {

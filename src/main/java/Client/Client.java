@@ -26,21 +26,35 @@ public class Client extends HttpServlet {
 	}
     
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String word = request.getParameter("word");
-        String res;
-        System.out.println("The word: "+word);
-        
-        /*WordWorker wordWork = new WordWorker(word);
-        try {
-			wordWork.run();
-			wordWork.toString();
-			res = wordWork.getServerResult();
-		} catch (NotBoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			res = "error check console";
-		}
-        request.getSession().setAttribute("result", res);
-		response.sendRedirect("/SearchResults"); */
+    	if (request.getParameter("word") != null) {
+	    	String word = request.getParameter("word");
+	        String res;
+	        System.out.println("The word to find: "+word);
+	        
+	        // Get handle on our pool
+	        WorkerPool pool = WorkerPool.getInstance( );
+	        // Create Job
+	        LookupWorker wordWork = new LookupWorker(word);
+	        // Add job to pool
+	        res = pool.addJob(wordWork);
+	        request.getSession().setAttribute("result", res);
+			response.sendRedirect("/SearchResults"); 
+    	}
+    	else if (request.getParameter("delete") != null) {
+    		String word = request.getParameter("delete");
+	        String res;
+	        System.out.println("The word to delete: "+word);
+	        
+	        // Get handle on our pool
+	        WorkerPool pool = WorkerPool.getInstance( );
+	        // Create Job
+	        WorkerPlan deleteWork = new DeleteWorker(word);
+	        // Add job to pool
+	        pool.addJob(deleteWork);
+			System.out.println(deleteWork.toString());
+			res = deleteWork.getServerResult();
+	        request.getSession().setAttribute("result", res);
+			response.sendRedirect("/SearchResults"); 
+    	}
     }   
 }

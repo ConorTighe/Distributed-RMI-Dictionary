@@ -10,13 +10,17 @@ import DictionaryInterface.DictionaryInterface;
 public class LookupWorker implements WorkerPlan {
 
 	private String word;
+	private String jobName;
 	private String serverResult;
 	private long threadId;
 	
 	public LookupWorker(String w) {
+		super();
 		this.word = w;
+		jobName = "Lookup Job";
 	}
 
+	@Override
 	public void run(){
 		DictionaryInterface Dictonary = null;
 		try {
@@ -26,7 +30,7 @@ public class LookupWorker implements WorkerPlan {
 			e1.printStackTrace();
 		}
 		try {
-			serverResult = Dictonary.findWord(word);
+			serverResult = Dictonary.lookup(word);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -50,9 +54,13 @@ public class LookupWorker implements WorkerPlan {
 		return word;
 	}
 
+	public String getJobName() {
+		return jobName;
+	}
+
 	@Override
 	public String toString() {
-		return "WordWorker [Id= " + threadId + "word= " + word + ", serverResult= " + serverResult + "]";
+		return jobName + " [Id= " + threadId + "word= " + word + ", serverResult= " + serverResult + "]";
 	}	
 	
 }

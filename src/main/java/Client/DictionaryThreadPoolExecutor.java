@@ -18,7 +18,7 @@ public class DictionaryThreadPoolExecutor extends ThreadPoolExecutor {
     @Override
     protected void beforeExecute(Thread t, Runnable r) {
         super.beforeExecute(t, r);
-        System.out.println("Thread " + t + " is attepting a new job");
+        System.out.println("Executing a new dictionary job");
     }
  
     @Override
@@ -27,7 +27,7 @@ public class DictionaryThreadPoolExecutor extends ThreadPoolExecutor {
         if (t != null) {
             System.out.println("Thread didnt finish its job properly, error: " + t);
         }
-        System.out.println("Thread is finished its job");
+        System.out.println("Thread is finished executing its dictionary job");
     }
  
 }
