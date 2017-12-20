@@ -5,8 +5,6 @@ import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 
-import DictionaryInterface.DictionaryInterface;
-
 public class DeleteWorker implements WorkerPlan {
 
 	private String word;

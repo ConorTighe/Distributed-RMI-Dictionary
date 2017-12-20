@@ -34,7 +34,7 @@ public class Client extends HttpServlet {
 	        // Get handle on our pool
 	        WorkerPool pool = WorkerPool.getInstance( );
 	        // Create Job
-	        LookupWorker wordWork = new LookupWorker(word);
+	        LookupWorker wordWork = new LookupWorker(word.toLowerCase());
 	        // Add job to pool
 	        res = pool.addJob(wordWork);
 	        request.getSession().setAttribute("result", res);
@@ -53,6 +53,40 @@ public class Client extends HttpServlet {
 	        pool.addJob(deleteWork);
 			System.out.println(deleteWork.toString());
 			res = deleteWork.getServerResult();
+	        request.getSession().setAttribute("result", res);
+			response.sendRedirect("/SearchResults"); 
+    	}
+    	else if (request.getParameter("editWord") != null) {
+    		String word = request.getParameter("editWord");
+    		String newWord = request.getParameter("newWord");
+	        String res;
+	        System.out.println("The word to delete: "+word);
+	        
+	        // Get handle on our pool
+	        WorkerPool pool = WorkerPool.getInstance( );
+	        // Create Job
+	        WorkerPlan editWork = new EditWordWorker(word, newWord);
+	        // Add job to pool
+	        pool.addJob(editWork);
+			System.out.println(editWork.toString());
+			res = editWork.getServerResult();
+	        request.getSession().setAttribute("result", res);
+			response.sendRedirect("/SearchResults"); 
+    	}
+    	else if (request.getParameter("editDef") != null) {
+    		String def = request.getParameter("editDef");
+    		String newDef = request.getParameter("newDef");
+	        String res;
+	        System.out.println("The word being edited: "+def);
+	        
+	        // Get handle on our pool
+	        WorkerPool pool = WorkerPool.getInstance( );
+	        // Create Job
+	        WorkerPlan editDefWork = new EditDefinitionWorker(def, newDef);
+	        // Add job to pool
+	        pool.addJob(editDefWork);
+			System.out.println(editDefWork.toString());
+			res = editDefWork.getServerResult();
 	        request.getSession().setAttribute("result", res);
 			response.sendRedirect("/SearchResults"); 
     	}

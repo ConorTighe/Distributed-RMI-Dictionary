@@ -47,6 +47,12 @@ public class WorkerPool {
         // Adding new lookup job to our queue
         System.out.println("Adding a " + job.getJobName() + " to the queue. Searching for: " + job.getWord() + " Job number: " + threadCounter);
         executor.execute(job);
+        try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} // sleep so we can wait for rmi object to come in
         System.out.println(job.toString());
         result = job.getServerResult();
         return result;

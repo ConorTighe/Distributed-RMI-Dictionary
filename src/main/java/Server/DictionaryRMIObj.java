@@ -7,14 +7,14 @@ import java.rmi.server.*;
 import java.util.HashMap;
 import java.util.Map;
 
-import DictionaryInterface.DictionaryInterface;
 
 public class DictionaryRMIObj extends UnicastRemoteObject implements DictionaryInterface {
 
 	private static final long serialVersionUID = 1L;
 	
 	Map<String, String> dictionary = new HashMap<String, String>();
-	FileReader file = new FileReader("src\\main\\resources\\dictionary.txt");
+	// Change this to the appropriate location in project when testing the server
+	FileReader file = new FileReader("\\src\\main\\resources\\dictionary");
 	
 	public DictionaryRMIObj() throws IOException {
 		super();
@@ -22,11 +22,10 @@ public class DictionaryRMIObj extends UnicastRemoteObject implements DictionaryI
         BufferedReader in = new BufferedReader(file);
         String line = "";
         while ((line = in.readLine()) != null) {
-            String parts[] = line.split("  ", 1);
-            dictionary.put(parts[0], parts[1]);
+            String parts[] = line.split("  ");
+            dictionary.put(parts[0].toLowerCase(), parts[1]);
         }
         in.close();
-        //System.out.println(dictionary.toString());
 	}
 
 	public String lookup(String s) throws RemoteException {

@@ -1,7 +1,6 @@
 package Server;
 
 import java.rmi.Naming;
-import DictionaryInterface.DictionaryInterface;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 

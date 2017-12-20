@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="container">
-	<H1>${results}</H1>
+	<H1>Server Results: ${result}</H1>
 </div>
 </body>
 </html>

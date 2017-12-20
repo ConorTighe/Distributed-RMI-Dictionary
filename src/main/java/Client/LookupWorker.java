@@ -5,8 +5,6 @@ import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 
-import DictionaryInterface.DictionaryInterface;
-
 public class LookupWorker implements WorkerPlan {
 
 	private String word;
@@ -35,15 +33,8 @@ public class LookupWorker implements WorkerPlan {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println(serverResult); 
-		threadId = Thread.currentThread().getId();
-		try {
-			// Sleep for a while to simulate real lookup async
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+			System.out.println(serverResult); 
+			threadId = Thread.currentThread().getId();
 	}
 
 	public String getServerResult() {
