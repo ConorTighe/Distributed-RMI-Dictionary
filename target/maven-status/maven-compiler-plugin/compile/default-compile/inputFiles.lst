@@ -1,6 +1,7 @@
 C:\Users\Conor\eclipse-workspace\DistributedSystemsProject\src\main\java\Client\DictionaryInterface.java
 C:\Users\Conor\eclipse-workspace\DistributedSystemsProject\src\main\java\Client\EditWordWorker.java
 C:\Users\Conor\eclipse-workspace\DistributedSystemsProject\src\main\java\Client\WorkerPool.java
+C:\Users\Conor\eclipse-workspace\DistributedSystemsProject\src\main\java\Client\ClientService.java
 C:\Users\Conor\eclipse-workspace\DistributedSystemsProject\src\main\java\Client\LookupWorker.java
 C:\Users\Conor\eclipse-workspace\DistributedSystemsProject\src\main\java\Client\WorkerPlan.java
 C:\Users\Conor\eclipse-workspace\DistributedSystemsProject\src\main\java\Client\DictionaryThreadPoolExecutor.java

@@ -6,11 +6,10 @@ import java.util.concurrent.RejectedExecutionHandler;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
+/* Thread pool that takes care of executing the rmi requests, some error handling added incase the pool its self fails*/
 public class WorkerPool {
 	
-	private static WorkerPool pool = new WorkerPool( );
-	
-	private int threadCounter = 0;
+	private static WorkerPool pool = new WorkerPool();
     private BlockingQueue<Runnable> blockingQueue = new ArrayBlockingQueue<Runnable>(50);
 
     // 15 threads with 40 max threads, I choose this amount just to make sure we can get jobs done before the browser time out, wed need more threads when working with a large amount of clients
@@ -43,17 +42,17 @@ public class WorkerPool {
 	
 	public String addJob(WorkerPlan job) {
 		String result;
-		threadCounter++;
         // Adding new lookup job to our queue
-        System.out.println("Adding a " + job.getJobName() + " to the queue. Searching for: " + job.getWord() + " Job number: " + threadCounter);
+        System.out.println("Adding a " + job.getJobName() + " to the queue. Searching for: " + job.getWord());
         executor.execute(job);
         try {
-			Thread.sleep(5000);
+        	// generating computation time
+			Thread.sleep(1000); 
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} // sleep so we can wait for rmi object to come in
-        System.out.println(job.toString());
+		}
+        //System.out.println(job.toString());
         result = job.getServerResult();
         return result;
 	}

@@ -2,6 +2,8 @@ package Client;
 
 import java.rmi.*;
 
+/* middleware for the remote object on the serverside */
+
 public interface DictionaryInterface extends Remote {
 	
 	public String lookup(String s) throws RemoteException;

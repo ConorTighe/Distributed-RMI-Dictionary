@@ -4,7 +4,7 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
-
+/* Thread that deletes words on the server using RMI naming service */
 public class DeleteWorker implements WorkerPlan {
 
 	private String word;

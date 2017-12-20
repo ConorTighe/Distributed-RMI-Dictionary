@@ -4,7 +4,7 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
-
+/* Thread that edits words definitions on the server using RMI naming service */
 public class EditDefinitionWorker implements WorkerPlan {
 
 	private String word;
