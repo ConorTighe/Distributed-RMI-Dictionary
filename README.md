@@ -1,6 +1,6 @@
--Name: Conor Tighe
--Id: G00314417
--Module: Distributed Systems
+- Name: Conor Tighe
+- Id: G00314417
+- Module: Distributed Systems
 
 # Overview:
 This is a multi-threaded distributed dictionary web service. A client hosted by maven that takes input on a JSP page and sends it to a RMI server to interact with a full dictionary, you can look up words, look up definitions and delete or edit words.
