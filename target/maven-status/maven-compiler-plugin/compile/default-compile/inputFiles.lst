@@ -5,12 +5,9 @@ C:\Users\Conor\eclipse-workspace\DistributedSystemsProject\src\main\java\Client\
 C:\Users\Conor\eclipse-workspace\DistributedSystemsProject\src\main\java\Client\LookupWorker.java
 C:\Users\Conor\eclipse-workspace\DistributedSystemsProject\src\main\java\Client\WorkerPlan.java
 C:\Users\Conor\eclipse-workspace\DistributedSystemsProject\src\main\java\Client\DictionaryThreadPoolExecutor.java
-C:\Users\Conor\eclipse-workspace\DistributedSystemsProject\src\main\java\Server\DictionaryInterface.java
 C:\Users\Conor\eclipse-workspace\DistributedSystemsProject\src\main\java\Client\Client.java
 C:\Users\Conor\eclipse-workspace\DistributedSystemsProject\src\main\java\Client\DeleteWorker.java
 C:\Users\Conor\eclipse-workspace\DistributedSystemsProject\src\main\java\Client\Results.java
 C:\Users\Conor\eclipse-workspace\DistributedSystemsProject\src\main\java\Client\EditDefinitionWorker.java
-C:\Users\Conor\eclipse-workspace\DistributedSystemsProject\src\main\java\Server\DictionaryRMIObj.java
 C:\Users\Conor\eclipse-workspace\DistributedSystemsProject\src\main\java\Login\LoginService.java
-C:\Users\Conor\eclipse-workspace\DistributedSystemsProject\src\main\java\Server\DictionaryServer.java
 C:\Users\Conor\eclipse-workspace\DistributedSystemsProject\src\main\java\Login\Login.java
