@@ -60,10 +60,11 @@ Serverside:
 ![client](serveruml.png "Server")
 
 ### Technologies used:
--Maven
--Tomcat 7
--RMI
--Java
+
+- Maven
+- Tomcat 7
+- RMI
+- Java
 
 ## References:
 
