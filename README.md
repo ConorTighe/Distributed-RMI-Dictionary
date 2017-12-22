@@ -3,7 +3,7 @@
 - Module: Distributed Systems
 
 # Overview:
-This is a multi-threaded distributed dictionary web service. A client hosted by maven that takes input on a JSP page and sends it to a RMI server to interact with a full dictionary, you can look up words, look up definitions and delete or edit words. Once a request is made the client thread will poll the server every 10 seconds until it gets a response.
+This is a multi-threaded distributed dictionary web service. A client hosted by tomcat that takes input on a JSP page and sends it to a RMI server to interact with a full dictionary, you can look up words, look up definitions and delete or edit words. Once a request is made the client thread will poll the server every 10 seconds until it gets a response.
 
 ### Dictionary 
 I found a dictionary online, copied it into notepad and used regular expression to get rid of white lines and formatted it in a way that I could loop through and split the word and definition into 2 Strings. I then put these 2 strings in a HashMap that is created when the server starts, the client interacts with the HashMap to get results.
@@ -13,6 +13,8 @@ The project itself works fine but I ran into problems converting the Maven proje
 ```
     tomcat7:run
 ```
+
+The server is run as a normal project.
 
 ### Login:
 - Username: DSProject
@@ -57,7 +59,11 @@ Client:
 Serverside:
 ![client](serveruml.png "Server")
 
-The server is run as a normal project.
+### Technologies used:
+-Maven
+-Tomcat 7
+-RMI
+-Java
 
 ## References:
 
