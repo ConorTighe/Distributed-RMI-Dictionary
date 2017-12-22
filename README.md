@@ -14,7 +14,10 @@ The project itself works fine but I ran into problems converting the Maven proje
     tomcat7:run
 ```
 
-The server is run as a normal project.
+The server is run as a normal project. Once both the server and client are executing go to port 8080 to use the app. 
+```
+    http://localhost:8080/
+```
 
 ### Login:
 - Username: DSProject
