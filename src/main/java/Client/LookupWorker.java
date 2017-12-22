@@ -22,12 +22,14 @@ public class LookupWorker implements WorkerPlan {
 	public void run(){
 		DictionaryInterface Dictonary = null;
 		try {
+			// Connect to Naming Service
 			Dictonary = (DictionaryInterface) Naming.lookup("rmi://127.0.0.1:1099/DictionaryService");
 		} catch (MalformedURLException | RemoteException | NotBoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		try {
+			// Get lookup word results from remote
 			serverResult = Dictonary.lookup(word);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block

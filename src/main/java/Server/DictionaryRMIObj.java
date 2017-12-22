@@ -7,11 +7,12 @@ import java.rmi.server.*;
 import java.util.HashMap;
 import java.util.Map;
 
-
+// Extend UnicastRemoteObject to make available to network and use interface as middleware
 public class DictionaryRMIObj extends UnicastRemoteObject implements DictionaryInterface {
 
 	private static final long serialVersionUID = 1L;
 	
+	// Hash map for storing values from text file
 	Map<String, String> dictionary = new HashMap<String, String>();
 	// Change this to the appropriate location in project when testing the server
 	FileReader file = new FileReader("\\src\\main\\resources\\dictionary");
@@ -31,6 +32,7 @@ public class DictionaryRMIObj extends UnicastRemoteObject implements DictionaryI
 	public String lookup(String s) throws RemoteException {
 		
 		String result;
+		// Get clients word from map
 	    result = dictionary.get(s);
 	    
 	    if(result == null) {
@@ -44,8 +46,9 @@ public class DictionaryRMIObj extends UnicastRemoteObject implements DictionaryI
 		
 		String result;
 		try {
-		dictionary.remove(w);
-		result = "String removed from dictionary";
+			// Delete clients word from map
+			dictionary.remove(w);
+			result = "String removed from dictionary";
 		}catch(Exception e) {
 			result = "Problem removing string: " + e;
 		}
@@ -55,10 +58,11 @@ public class DictionaryRMIObj extends UnicastRemoteObject implements DictionaryI
 	public String EditWord(String w, String newWord) throws RemoteException {
 		String result;
 		try {
-	    String definition = dictionary.get(w);
-	    dictionary.remove(w);
-	    dictionary.put(newWord, definition);
-		result = w + " changed to " + newWord;
+			String definition = dictionary.get(w);
+			// Remove old word and replace with new one
+			dictionary.remove(w);
+			dictionary.put(newWord, definition);
+			result = w + " changed to " + newWord;
 		}catch(Exception e) {
 			result = "Problem changing string: " + e;
 		}
@@ -68,8 +72,9 @@ public class DictionaryRMIObj extends UnicastRemoteObject implements DictionaryI
 	public String EditDefinition(String w, String newDesc) throws RemoteException {
 		String result;
 		try {
-		dictionary.put(w, newDesc);
-		result = w + " description changed to " + newDesc;
+			// Change definition in map
+			dictionary.put(w, newDesc);
+			result = w + " description changed to " + newDesc;
 		}catch(Exception e) {
 			result = "Problem changing strings description: " + e;
 		}

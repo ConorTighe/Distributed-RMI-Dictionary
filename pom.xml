@@ -4,8 +4,8 @@
   <artifactId>DistributedSystemsProject</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
-  
-  	<dependencies>
+
+    <dependencies>
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
@@ -18,7 +18,7 @@
             <version>1.2</version>
         </dependency>
     </dependencies>
-  
+
   <build>
         <pluginManagement>
             <plugins>
@@ -36,10 +36,16 @@
                 <plugin>
                     <groupId>org.apache.tomcat.maven</groupId>
                     <artifactId>tomcat7-maven-plugin</artifactId>
-                    <version>2.2</version>
+                    <version>2.1</version>
+                    <goals>
+                        <goal>exec-war-only</goal>
+                    </goals>
                     <configuration>
                         <path>/</path>
                         <contextReloadable>true</contextReloadable>
+                        <enableNaming>false</enableNaming>
+                        <finalName>dictionary-service.jar</finalName>
+                        <charset>utf-8</charset>
                     </configuration>
                 </plugin>
             </plugins>

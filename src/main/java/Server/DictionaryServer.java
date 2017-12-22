@@ -18,11 +18,12 @@ public class DictionaryServer {
 		//Bind our remote object to the registry with the human-readable name "DictionaryService"
 		Naming.rebind("DictionaryService", Dictionary);
 
-		//Print a message to standard output
+		//Print a message to let us know server is ready
 		System.out.println("Server ready.");
 		
 		}catch (Exception e) {
-			   System.out.println("Dictionary Server Failed: " + e);
+			 // Something went wrong
+			 System.out.println("Dictionary Server Failed: " + e);
 		}
 	}
 

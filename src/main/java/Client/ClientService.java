@@ -6,6 +6,7 @@ public class ClientService {
 		// TODO Auto-generated constructor stub
 	}
 	
+	// Deal with look up request
 	public String LookupService(String word) {
 		String res = null;
 		boolean pollServer = true;
@@ -34,6 +35,7 @@ public class ClientService {
 		return res;
 	}
 
+	// Deal with delete request
 	public String DeleteService(String word) {
 		String res = null;
 		boolean pollServer = true;
@@ -62,6 +64,7 @@ public class ClientService {
 		return res;
 	}
 	
+	// Deal with edit word request
 	public String WordService(String word, String newWord) {
 		String res = null;
 		boolean pollServer = true;
@@ -90,6 +93,7 @@ public class ClientService {
 		return res;
 	}
 	
+	// Deal with edit definition request
 	public String DefinitionService(String def, String newDef) {
 		String res = null;
 		boolean pollServer = true;

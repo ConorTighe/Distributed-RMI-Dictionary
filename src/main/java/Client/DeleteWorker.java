@@ -22,12 +22,14 @@ public class DeleteWorker implements WorkerPlan {
 	public void run(){
 		DictionaryInterface Dictonary = null;
 		try {
+			// Connect to Naming Service
 			Dictonary = (DictionaryInterface) Naming.lookup("rmi://127.0.0.1:1099/DictionaryService");
 		} catch (MalformedURLException | RemoteException | NotBoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		try {
+			// Get results from remote delete
 			serverResult = Dictonary.deleteWord(word);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
@@ -36,7 +38,7 @@ public class DeleteWorker implements WorkerPlan {
 		System.out.println(serverResult); 
 		threadId = Thread.currentThread().getId();
 		try {
-			// Sleep for a while to simulate real lookup async
+			// Sleep for a second to simulate real lookup async
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block

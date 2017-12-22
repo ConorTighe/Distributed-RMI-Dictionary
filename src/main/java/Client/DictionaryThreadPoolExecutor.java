@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit;
  
 public class DictionaryThreadPoolExecutor extends ThreadPoolExecutor {
  
+	// Mapping Thread and Job Number for queuing 
 	private int jobNum;
 	private Map<Integer, Thread> queue = new HashMap<Integer, Thread>();
 	

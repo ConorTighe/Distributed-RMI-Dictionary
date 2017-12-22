@@ -9,13 +9,17 @@ import java.util.concurrent.TimeUnit;
 /* Thread pool that takes care of executing the rmi requests, some error handling added incase the pool its self fails*/
 public class WorkerPool {
 	
+	// Singleton pool and Blocking queue
 	private static WorkerPool pool = new WorkerPool();
     private BlockingQueue<Runnable> blockingQueue = new ArrayBlockingQueue<Runnable>(50);
 
-    // 15 threads with 40 max threads, I choose this amount just to make sure we can get jobs done before the browser time out, wed need more threads when working with a large amount of clients
+    // This project only needs a few threads as its only a replication but for examples sake I used
+    // 15 threads with 40 max threads, I choose this amount just to make sure we can get jobs done 
+    // before the browser time, wed need more threads when working with a large amount of clients
     private DictionaryThreadPoolExecutor executor = new DictionaryThreadPoolExecutor(15,
                                         50, 5000, TimeUnit.MILLISECONDS, blockingQueue);
 
+    // Set up error handling for when pool itself fails
 	private WorkerPool() {
 		executor.setRejectedExecutionHandler(new RejectedExecutionHandler() {
 	        @Override
@@ -36,13 +40,15 @@ public class WorkerPool {
 	    });
 	}
 	
+	// Get out clients pool instance
 	public static WorkerPool getInstance( ) {
 	      return pool;
 	}
 	
+	// For adding one of our Jobs to the Pool for execution by the pool threads
 	public String addJob(WorkerPlan job) {
 		String result;
-        // Adding new lookup job to our queue
+        // Adding new job to our queue
         System.out.println("Adding a " + job.getJobName() + " to the queue. Searching for: " + job.getWord());
         executor.execute(job);
         try {
@@ -52,7 +58,7 @@ public class WorkerPool {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        //System.out.println(job.toString());
+        //System.out.println(job.toString()); for debugging
         result = job.getServerResult();
         return result;
 	}

@@ -21,14 +21,17 @@ public class Client extends HttpServlet {
         this.ClientServ = new ClientService();
     }
     
+    // GET JSP Menu view
     protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/WEB-INF/views/SearchMenu.jsp").forward(
 				request, response);
 	}
     
+    // POST JSP Menu view
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	if (request.getParameter("word") != null) {
+    		// Store User input
 	    	String word = request.getParameter("word");
 	        String result;
 	        
@@ -38,6 +41,7 @@ public class Client extends HttpServlet {
 			response.sendRedirect("/SearchResults"); 
     	}
     	else if (request.getParameter("delete") != null) {
+    		// Store User input
     		String word = request.getParameter("delete");
 	        String result;
 	        
@@ -47,6 +51,7 @@ public class Client extends HttpServlet {
 			response.sendRedirect("/SearchResults"); 
     	}
     	else if (request.getParameter("editWord") != null) {
+    		// Store User input
     		String word = request.getParameter("editWord");
     		String newWord = request.getParameter("newWord");
 	        String result;
@@ -57,6 +62,7 @@ public class Client extends HttpServlet {
 			response.sendRedirect("/SearchResults"); 
     	}
     	else if (request.getParameter("editDef") != null) {
+    		// Store User input
     		String def = request.getParameter("editDef");
     		String newDef = request.getParameter("newDef");
 	        String result;

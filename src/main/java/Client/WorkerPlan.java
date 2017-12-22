@@ -5,11 +5,15 @@ package Client;
 
 public interface WorkerPlan extends Runnable {
 
+	// For threads to run the code
 	public void run();
 	
+	// All threads will need to return a result to user
 	public String getServerResult();
 	
+	// For when we need the threads word input
 	public String getWord();
 	
+	// Let us know what the thread is working on
 	public String getJobName();
 }
