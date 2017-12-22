@@ -8,6 +8,12 @@ This is a multi-threaded distributed dictionary web service. A client hosted by 
 ### Dictionary 
 I found a dictionary online, copied it into notepad and used regular expression to get rid of white lines and formatted it in a way that I could loop through and split the word and definition into 2 Strings. I then put these 2 strings in a HashMap that is created when the server starts, the client interacts with the HashMap to get results.
 
+## Running the app:
+The project itself works fine but I ran into problems converting the Maven project into a WAR file and couldn't find a solution, there is a JAR file for the server but once you connect to the RMI throws security errors. In order to run the client you have to import the project in eclipse as a Maven project and use the following run config:
+```
+    tomcat7:run
+```
+
 ### Login:
 - Username: DSProject
 - password: password
@@ -50,12 +56,6 @@ Client:
 
 Serverside:
 ![client](serveruml.png "Server")
-
-## Running the app:
-The project itself works fine but I ran into problems converting the Maven project into a WAR file and couldn't find a solution, there is a JAR file for the server but once you connect to the RMI throws security errors. In order to run the client you have to import the project in eclipse as a Maven project and use the following run config:
-```
-    tomcat7:run
-```
 
 The server is run as a normal project.
 
