@@ -51,8 +51,8 @@ Client:
 Serverside:
 ![client](serveruml.png "Server")
 
-Running the app:
-The project itsself works fine but I ran into problems converting the Maven project into a WAR file and couldnt find a solution, there is a JAR file for the server but once you connect to the RMI throws security errors. In order to run the client you have to import the project in eclipse as a Maven project and use the following run config:
+## Running the app:
+The project itself works fine but I ran into problems converting the Maven project into a WAR file and couldn't find a solution, there is a JAR file for the server but once you connect to the RMI throws security errors. In order to run the client you have to import the project in eclipse as a Maven project and use the following run config:
 ```
     tomcat7:run
 ```
